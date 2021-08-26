@@ -15,6 +15,7 @@ import { installMediaQueryWatcher } from 'pwa-helpers/media-query.js';
 import { installOfflineWatcher } from 'pwa-helpers/network.js';
 import { installRouter } from 'pwa-helpers/router.js';
 import { updateMetadata } from 'pwa-helpers/metadata.js';
+import productPath from './data-products-path';
 
 // This element is connected to the Redux store.
 import { store } from '../store.js';
@@ -33,6 +34,7 @@ import '@polymer/app-layout/app-header/app-header.js';
 import '@polymer/app-layout/app-scroll-effects/effects/waterfall.js';
 import '@polymer/app-layout/app-toolbar/app-toolbar.js';
 import { menuIcon } from './my-icons.js';
+import {oldPhone} from "./svg-items";
 import './snack-bar.js';
 
 class MyApp extends connect(store)(LitElement) {
@@ -76,19 +78,15 @@ class MyApp extends connect(store)(LitElement) {
       }
 
       [main-title] {
-        font-family: 'Pacifico';
-        text-transform: lowercase;
-        font-size: 30px;
-        /* In the narrow layout, the toolbar is offset by the width of the
-        drawer button, and the text looks not centered. Add a padding to
-        match that button */
-        padding-right: 44px;
+        font-family: 'Fascinate Inline';
+        font-size: 24px;
+        color: rgba(0,0,0,1);
+        padding: 40px 44px 40px 0;
       }
 
       .toolbar-list {
         display: none;
       }
-
       .toolbar-list > a {
         display: inline-block;
         color: var(--app-header-text-color);
@@ -110,7 +108,9 @@ class MyApp extends connect(store)(LitElement) {
         height: 44px;
         width: 44px;
       }
-
+app-drawer {
+z-index: 999;
+}
       .drawer-list {
         box-sizing: border-box;
         width: 100%;
@@ -175,11 +175,20 @@ class MyApp extends connect(store)(LitElement) {
         /* The drawer button isn't shown in the wide layout, so we don't
         need to offset the title */
         [main-title] {
-          padding-right: 0px;
-        }
+        /*font-family: 'Slackey';*/
+        /*text-transform: lowercase;*/
+        font-size: 40px;
+        color: rgba(0,0,0,1);
+       padding: 10px 0 10px 0
       }
+      }
+      .phone svg {
+        height: 50px;
+        width: 50px;
+        padding-bottom: 0;
+        margin-bottom: -15px;
+       }
     </style>
-
     <!-- Header -->
     <app-header condenses reveals effects="waterfall">
       <app-toolbar class="toolbar-top">
@@ -189,9 +198,9 @@ class MyApp extends connect(store)(LitElement) {
 
       <!-- This gets hidden on a small screen-->
       <nav class="toolbar-list">
-        <a selected?="${_page === 'view1'}" href="/view1">View One</a>
-        <a selected?="${_page === 'view2'}" href="/view2">View Two</a>
-        <a selected?="${_page === 'view3'}" href="/view3">View Three</a>
+        <a selected?="${_page === 'home'}" href="/home">HOME</a>
+        <a selected?="${_page === 'products'}" href="/products">PRODUCTS</a>
+        <a selected?="${_page === 'contacts'}" href="/contacts">CONTACTS</a>
       </nav>
     </app-header>
 
@@ -199,22 +208,34 @@ class MyApp extends connect(store)(LitElement) {
     <app-drawer opened="${_drawerOpened}"
         on-opened-changed="${e => store.dispatch(updateDrawerState(e.target.opened))}">
       <nav class="drawer-list">
-        <a selected?="${_page === 'view1'}" href="/view1">View One</a>
-        <a selected?="${_page === 'view2'}" href="/view2">View Two</a>
-        <a selected?="${_page === 'view3'}" href="/view3">View Three</a>
+        <a selected?="${_page === 'home'}" href="/home">Home</a>
+        <a selected?="${_page === 'products'}" href="/products">Products</a>
+        <a selected?="${_page === 'contacts'}" href="/contacts">Contacts</a>
+        <a selected?="${_page === 'bagels'}" href="/bagels">bagels</a>
+        <a selected?="${_page === 'bread'}" href="/bread">bread</a>
+        <a selected?="${_page === 'muffins'}" href="/muffins">muffins</a>
+        <a selected?="${_page === 'croissants'}" href="/croissants">croissants</a>
+        <a selected?="${_page === 'pastry'}" href="/pastry">pastry</a>
+        <a selected?="${_page === 'rolls'}" href="/rolls">rolls</a>
       </nav>
     </app-drawer>
 
     <!-- Main content -->
     <main role="main" class="main-content">
-      <my-view1 class="page" active?="${_page === 'view1'}"></my-view1>
-      <my-view2 class="page" active?="${_page === 'view2'}"></my-view2>
-      <my-view3 class="page" active?="${_page === 'view3'}"></my-view3>
+      <page-home class="page" active?="${_page === 'home'}"></page-home>
+      <page-products class="page" active?="${_page === 'products'}"></page-products>
+      <view-bagels class="page" active?="${_page === productPath.bagels}"></view-bagels>
+      <view-bread class="page" active?="${_page === productPath.bread}"></view-bread>
+      <view-croissants class="page" active?="${_page === productPath.croissants}" ></view-croissants>
+      <view-muffins class="page" active?="${_page === productPath.muffins}"></view-muffins>
+      <view-pastry class="page" active?="${_page === productPath.pastry}"></view-pastry>
+      <view-rolls class="page" active?="${_page === productPath.rolls}"></view-rolls>
+      <page-contacts class="page" active?="${_page === 'contacts'}"></page-contacts>
       <my-view404 class="page" active?="${_page === 'view404'}"></my-view404>
     </main>
 
     <footer>
-      <p>Made with &hearts; by the Polymer team.</p>
+      <span>Bagel Land of Winchester <span><span class="phone">${oldPhone} (781)&nbsp;-721&nbsp;-5855</span>
     </footer>
 
     <snack-bar active?="${_snackbarOpened}">
@@ -264,5 +285,4 @@ class MyApp extends connect(store)(LitElement) {
     this._drawerOpened = state.app.drawerOpened;
   }
 }
-
 window.customElements.define('my-app', MyApp);

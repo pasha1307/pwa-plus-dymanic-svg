@@ -1,22 +1,11 @@
-<!--
-@license
-Copyright (c) 2018 The Polymer Project Authors. All rights reserved.
-This code may only be used under the BSD style license found at http://polymer.github.io/LICENSE.txt
-The complete set of authors may be found at http://polymer.github.io/AUTHORS.txt
-The complete set of contributors may be found at http://polymer.github.io/CONTRIBUTORS.txt
-Code distributed by Google as part of the polymer project is also
-subject to an additional IP rights grant found at http://polymer.github.io/PATENTS.txt
--->
-
 <!doctype html>
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <title>My app</title>
-    <meta name="generator" content="PWA Starter Kit">
+    <title>Bagel Land Of Winchester</title>
+    <meta name="generator" content="Bagel Land Of Winchester website">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="My App description">
-
+    <meta name="description" content="Bagel Land of Winchester app by Pavel Krotov">
     <!--
       The `<base>` tag below is present to support two advanced deployment options:
       1) Differential serving. 2) Serving from a non-root path.
@@ -25,6 +14,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       a) Add a `basePath` property to the build configuration in your `polymer.json`.
       b) Use the `--base-path` command-line option for `polymer build`.
     -->
+
     <base href="/">
 
     <link rel="icon" href="images/favicon.ico">
@@ -65,6 +55,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
     <!-- Performance tip: hint to the browser to start the handshake for the fonts site -->
     <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
+      <link href="https://fonts.googleapis.com/css?family=Fascinate+Inline&text=Bagel%20Land%20Of%20Winchester" rel="stylesheet">
     <script>
       // Load and register pre-caching Service Worker
       if ('serviceWorker' in navigator) {
@@ -82,21 +73,23 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
     <!-- Add any global styles for body, document, etc. -->
     <style>
+
       @font-face {
-        font-family: 'Pacifico';
-        font-style: normal;
-        font-weight: 400;
-        src: local('Pacifico Regular'), local('Pacifico-Regular'), url(https://fonts.gstatic.com/s/pacifico/v12/Q_Z9mv4hySLTMoMjnk_rCXYhjbSpvc47ee6xR_80Hnw.woff2) format('woff2');
-        /* THe browser draws the text immediately in the fallback font if the font
-           isn't loaded, then swaps it with the webfont when it eventually loads
-           See: https://developers.google.com/web/updates/2016/02/font-display
-        */
-        font-display: swap;
+          font-family: 'Lato';
+          font-display: auto;
+          src: local('Lato'), local('Lato'), url('http://fonts.gstatic.com/s/lato/v14/S6u9w4BMUTPHh7USew8.ttf') format('ttf');
       }
+      /*@font-face {*/
+        /*font-family: 'Ad Lib';*/
+        /*font-style: normal;*/
+        /*src: local('Ad Lib BT'), local('Ad Lib BT'), url(http://allfont.net/allfont.css?fonts=ad-lib-bt) format('woff2');*/
+        /*font-display: swap;*/
+      /*}*/
+      /*@font-face{font-family:AdLib bt;font-style:normal;font-weight:400;src:local('Ad Lib BT'),local('AdLibBT-Regular'),url(http://allfont.net/cache/fonts/ad-lib-bt_7f642196362460220e6736fcd6459455.woff) format('woff'),url(http://allfont.net/cache/fonts/ad-lib-bt_7f642196362460220e6736fcd6459455.ttf) format('truetype')}*/
       body {
         margin: 0;
         /* This is a font-stack that tries to use the system-default sans-serifs first */
-        font-family: Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
+        font-family: 'Lato', Arial, sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
         line-height: 1.5;
         min-height: 100vh;
         -webkit-font-smoothing: antialiased;
@@ -104,7 +97,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
     </style>
   </head>
   <body>
-    <my-app appTitle="my app"></my-app>
+    <my-app appTitle="Bagel Land Of Winchester"></my-app>
     <noscript>
       Please enable JavaScript to view this website.
     </noscript>

@@ -1,7 +1,7 @@
 {
-  "name": "My App",
-  "short_name": "My App",
-  "description": "My App description",
+  "name": "Bagel land Of Winchester",
+  "short_name": "Bagel Land",
+  "description": "Pavel Krotov's App",
   "start_url": "/",
   "display": "standalone",
   "theme_color": "#3f51b5",

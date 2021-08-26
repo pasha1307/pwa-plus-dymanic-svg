@@ -25,25 +25,25 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
     <script src="../../node_modules/wct-browser-legacy/browser.js"></script>
 
     <!-- Import the element to test -->
-    <script type="module" src="../../src/components/my-view1.js"></script>
-    <script type="module" src="../../src/components/my-view2.js"></script>
-    <script type="module" src="../../src/components/my-view3.js"></script>
+    <script type="module" src="../../src/components/page-home.js"></script>
+    <script type="module" src="../../src/components/page-products.js"></script>
+    <script type="module" src="../../src/components/page-contacts.js"></script>
     <script type="module" src="../../src/components/my-view404.js"></script>
   </head>
   <body>
-    <test-fixture id="view1">
+    <test-fixture id="home">
       <template>
-        <my-view1 active></my-view1>
+        <page-home active></page-home>
       </template>
     </test-fixture>
-    <test-fixture id="view2">
+    <test-fixture id="products">
       <template>
-        <my-view2 active></my-view2>
+        <page-products active></page-products>
       </template>
     </test-fixture>
-    <test-fixture id="view3">
+    <test-fixture id="products">
       <template>
-        <my-view3 active></my-view3>
+        <page-contacts active></page-contacts>
       </template>
     </test-fixture>
     <test-fixture id="view404">
@@ -57,18 +57,18 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       import {axeReport} from 'pwa-helpers/axe-report.js';
 
       suite('views a11y tests', function() {
-        test('my-view1', function() {
-          const el = fixture('view1');
+        test('page-home', function() {
+          const el = fixture('home');
           return axeReport(el);
         });
 
-        test('my-view2', function() {
-          const el = fixture('view2');
+        test('page-products', function() {
+          const el = fixture('products');
           return axeReport(el);
         });
 
-        test('my-view3', function() {
-          const el = fixture('view3');
+        test('page-contacts', function() {
+          const el = fixture('products');
           return axeReport(el);
         });
 

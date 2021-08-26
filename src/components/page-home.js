@@ -1,13 +1,3 @@
-/**
-@license
-Copyright (c) 2018 The Polymer Project Authors. All rights reserved.
-This code may only be used under the BSD style license found at http://polymer.github.io/LICENSE.txt
-The complete set of authors may be found at http://polymer.github.io/AUTHORS.txt
-The complete set of contributors may be found at http://polymer.github.io/CONTRIBUTORS.txt
-Code distributed by Google as part of the polymer project is also
-subject to an additional IP rights grant found at http://polymer.github.io/PATENTS.txt
-*/
-
 import { html } from '@polymer/lit-element';
 import { PageViewElement } from './page-view-element.js';
 import { repeat } from 'lit-html/lib/repeat.js';
@@ -15,32 +5,57 @@ import { repeat } from 'lit-html/lib/repeat.js';
 // These are the shared styles needed by this element.
 import {BREAD, MUFFINS, PASTRY, CROISSANTS, BAGELS, ROLLS} from "./data-products";
 import {Baker} from "./data-baker";
+import productPath from './data-products-path'
 import './baker-composite.js'
 import './product-pages/product-details'
-import {iFace, iBagel, iBread,iCrois, iMuffin, iPastry, iRoll, iBake} from "./svg-icons";
+import {iBagel, iBread,iMuffin, iPastry, iRoll,iHome, iCroissant} from "./svg-items";
+import './ui/icons-panel'
 import {StyleCustom} from "./styles-custom";
 
-class MyView1 extends PageViewElement {
+class PageHome extends PageViewElement {
   _render(props) {
     return html`
      ${StyleCustom}
      <style>
-     i-baker {
+    i-baker {
     width: 100%;
     align-self: flex-start;
     margin-top: 20px;
+     max-height: 670px;
     }
+    .icon-test {
+    stroke-width: 12px;
+    stroke: green;
+    }
+    .second-color {
+    stroke: mediumvioletred;
+    }
+    .icon-shape {
+    fill: palegoldenrod;
+    stroke-width: 2px;
+    stroke:cadetblue;
+    }
+ .menu-item {
+ text-align: center;
+ }
     .menu-item-svg svg {
    fill: none;
-   stroke: currentColor;
-   stroke-width: 8px;
-   max-width: 80px;
+   stroke: blueviolet;
+   color: white;
+   stroke-width: 7px;
+   max-width: 85px;
+ 
+ }
+.menu-item-svg svg .eye {
+fill: none;
+stroke: currentStroke;
 }
+
 .menu-item-svg svg .Frame {
-    fill: none;
-    stroke: currentColor;
+    fill: rgba(0,0,0,.1);
+    stroke: none;
 }
-.home-right .Frame {
+home-right .Frame {
     fill: gold;
 }
 .home-right svg {
@@ -49,14 +64,47 @@ fill: wheat;
 opacity: 0.3;
 }
 
+figure.home-right-figure {
+border:none;
+display: inline-block; 
+width: 75px; 
+float: left; 
+margin-right: 10px; 
+margin-bottom: 0;
+}
+.home-right-figure #Face {
+  stroke: antiquewhite;
+  stroke-width: 3px;
+  fill: none;
+  }
+  .home-right-figure .second-color {
+  fill: blanchedalmond;
+ stroke: antiquewhite;
+  }
+.home-right-figure .Frame {
+  fill: blueviolet;
+  }
+  .home-bottom-panel {
+  display: none;
+  }
+  
 @media screen and (max-width: 550px) {
-      .menu-item {
-        padding-right: 5px;
+ .home-bottom-panel {
+  display: block;
+  }
+  .home-menu-wrap {
+  display: none;
+  }
+.block-link.menu-item.span-3 {
+text-align: center;
+}
+.menu-item {
+   padding-right: 5px;
         margin-right: 0;
-         }
-         .menu-item-svg {
-            margin: 0;
-            padding-right:0;
+  }
+  .menu-item-svg {
+         margin: 0;
+         padding: 0;
         }
         .menu-item-svg svg {
           stroke: currentColor;
@@ -67,11 +115,12 @@ opacity: 0.3;
         stroke: none;
         fill: palegoldenrod;
         }
+        .home-menu-wrap {
+        max-width: 50px;
+   background-color: transparent;
+   }  
       }
-      #Boldie {
-      stroke-width: 28px;
-      }
-    
+  
 </style>
 ${this.showItem ? html`<product-detail 
 itemTitle=${this.singleItem.title}
@@ -98,36 +147,35 @@ fillShovelTxt="${this.fill1}" fillApronTxt="${this.fill2}"
 nosmile="${this.nosmile}"
 ></i-baker></div>
 
-<div class="span-2 span-3-t span-2-p pa-t_s bg-success-1">
-    <div class="grid-auto no-gap" >
-               <a class="block-link menu-item" href="/products/bagels" 
+<div class="span-2 span-3-t span-2-p pa-t_s bg-success-1 home-menu-wrap">
+    <div class="grid-auto no-gap">
+               <a class="block-link menu-item span-3" href="/${productPath.bagels}" 
                on-mouseenter="${(e) => this.onItemShow("Bagels")}">
                   <div class="menu-item-svg"> ${iBagel}</div>
                   <div class="menu-item-title text-mono hide-p">Bagels</div>
-              </a>
-               <a class="block-link menu-item" href="/products/bread" on-mouseenter="${(e) => this.onItemShow("Bread")}">
+              </a> 
+               <a class="block-link menu-item span-3" href="/${productPath.bread}" on-mouseenter="${(e) => this.onItemShow("Bread")}">
                   <div class="menu-item-svg"> ${iBread}</div>
                   <div class="menu-item-title text-mono hide-p">Bread</div> 
-              <a class="block-link menu-item " href="/products/muffins" on-mouseenter="${(e) => this.onItemShow("Muffins")}">
+              <a class="block-link menu-item span-3" href="/${productPath.muffins}" on-mouseenter="${(e) => this.onItemShow("Muffins")}">
                   <div class="menu-item-svg"> ${iMuffin}</div>
                   <div class="menu-item-title text-mono hide-p">Muffins</div>
               </a>
-               <a class="block-link menu-item" href="/products/pastry"
+               <a class="block-link menu-item span-3" href="/${productPath.pastry}"
                on-mouseenter="${(e) => this.onItemShow("Pastry")}">
-                  <div class="menu-item-svg"> ${iPastry}</div>
+                  <div class="menu-item-svg">${iPastry}</div>
                   <div class="menu-item-title text-mono hide-p">Pastry</div>
               </a>
-               <a class="block-link menu-item" href="/products/rolls" on-mouseenter="${(e) => this.onItemShow("Rolls")}">
+               <a class="block-link menu-item span-3" href="/${productPath.rolls}" on-mouseenter="${(e) => this.onItemShow("Rolls")}">
                   <div class="menu-item-svg"> ${iRoll}</div>
                   <div class="menu-item-title text-mono hide-p">Rolls</div>
               </a>
-              <a class="block-link menu-item " href="/products/croissants" on-mouseenter="${(e) => this.onItemShow("Crois")}">
-                  <div class="menu-item-svg"> ${iCrois}</div>
+              <a class="block-link menu-item span-3" href="${productPath.croissants}" on-mouseenter="${(e) => this.onItemShow("Crois")}">
+                  <div class="menu-item-svg">${iCroissant}</div>
                   <div class="menu-item-title text-mono hide-p">Crois</div>
               </a>
-             
-              <a class="block-link menu-item " href="/" on-mouseenter="${(e) => this.onItemShow("Home")}">
-                  <div class="menu-item-svg">${iFace}</div>
+             <a class="block-link menu-item span-3" href="/" on-mouseenter="${(e) => this.onItemShow("Home")}">
+                  <div class="menu-item-svg">${iHome}</div>
                   <div class="menu-item-title text-mono hide-p">Home</div>
               </a>
 </div>
@@ -135,8 +183,9 @@ nosmile="${this.nosmile}"
     <div class="span-5 span-12-t span-12-p pa_m text-serif article">
     ${this.showRight ? html`
         <div>
-        <h3 class="text-clip text-mono pa-b_m">Welcome to Our Bakery!</h3><figure class="ta" style="border:none;display: inline-block; width: 75px; float: left; margin-right: 10px; margin-bottom: 0;">
-           ${iBake}
+        <h3 class="text-clip text-mono pa-b_m">Welcome to Our Bakery!</h3>
+        <figure class="home-right-figure">
+           ${iHome}
         </figure>
          <h5 class="text-mono bg-highlight-1">..voted Best in Town for 28 years</h5>
         
@@ -157,7 +206,7 @@ nosmile="${this.nosmile}"
          :
          html`<div class="show-right">
                 <h4 class="text-clip text-mono">${this.showCat}</h4>
-            <div hidden ="${this.showCat !== 'Crois'}" class="home-right pos-rel">${iCrois}
+            <div hidden ="${this.showCat !== 'Crois'}" class="home-right pos-rel">${iCroissant}
                 <div class="pos-abs zi-max ma-l_l" style="top: 0">
                  ${repeat(CROISSANTS, item => html`<p class="text-clip text-mono item-p" on-click="${()=> this.onSingleItem(item)}">${item.title}</p>`)}
                 </div>
@@ -189,8 +238,8 @@ nosmile="${this.nosmile}"
             </div>
          <div hidden ="${this.showCat !== 'Home'}" class="span-5 span-12-t span-12-p pa_m text-serif article" >
          <h5 class="text-mono bg-highlight-1">..voted Best in Town for 28 years</h5>
-        <figure class="ta" style="border:none;display: inline-block; width: 75px;">
-           ${iBake}
+        <figure class="home-right-figure">
+           ${iHome}
         </figure>
         <span><mark>Bagel Land was established in 1991.</mark>
         Bagel Land continues to be a stable part of Winchester, MA 
@@ -210,8 +259,11 @@ nosmile="${this.nosmile}"
       </div>
         </div>`}
     </div>
-    
-    </div>`
+    </div>
+    <div class="home-bottom-panel">
+    <icons-panel></icons-panel>
+    </div>
+`
  }
     constructor() {
         super();
@@ -281,4 +333,4 @@ nosmile="${this.nosmile}"
     }
 }
 
-window.customElements.define('my-view1', MyView1);
+window.customElements.define('page-home', PageHome);

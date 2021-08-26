@@ -4,7 +4,7 @@
       "type": "script",
       "weight": 1
     },
-    "src/components/my-view1.js": {
+    "src/components/page-home.js": {
       "type": "script",
       "weight": 1
     },
@@ -13,12 +13,12 @@
       "weight": 1
     }
   },
-  "/view1": {
+  "/home": {
     "src/components/my-app.js": {
       "type": "script",
       "weight": 1
     },
-    "src/components/my-view1.js": {
+    "src/components/page-home.js": {
       "type": "script",
       "weight": 1
     },
@@ -27,12 +27,12 @@
       "weight": 1
     }
   },
-  "/view2": {
+  "/products": {
     "src/components/my-app.js": {
       "type": "script",
       "weight": 1
     },
-    "src/components/my-view2.js": {
+    "src/components/page-products.js": {
       "type": "script",
       "weight": 1
     },
@@ -41,12 +41,82 @@
       "weight": 1
     }
   },
-  "/view3": {
+  "/bagels": {
     "src/components/my-app.js": {
       "type": "script",
       "weight": 1
     },
-    "src/components/my-view3.js": {
+    "src/components/product-pages/view-bagels.js": {
+      "type": "script",
+      "weight": 1
+    },
+    "node_modules/@webcomponents/webcomponentsjs/webcomponents-loader.js": {
+      "type": "script",
+      "weight": 1
+    }
+  },
+  "/bread": {
+    "src/components/my-app.js": {
+      "type": "script",
+      "weight": 1
+    },
+    "src/components/product-pages/view-bread.js": {
+      "type": "script",
+      "weight": 1
+    },
+    "node_modules/@webcomponents/webcomponentsjs/webcomponents-loader.js": {
+      "type": "script",
+      "weight": 1
+    }
+  },
+  "/pastry": {
+    "src/components/my-app.js": {
+      "type": "script",
+      "weight": 1
+    },
+    "src/components/product-pages/view-pastry.js": {
+      "type": "script",
+      "weight": 1
+    },
+    "node_modules/@webcomponents/webcomponentsjs/webcomponents-loader.js": {
+      "type": "script",
+      "weight": 1
+    }
+  },
+  "/rolls": {
+    "src/components/my-app.js": {
+      "type": "script",
+      "weight": 1
+    },
+    "src/components/product-pages/view-rolls.js": {
+      "type": "script",
+      "weight": 1
+    },
+    "node_modules/@webcomponents/webcomponentsjs/webcomponents-loader.js": {
+      "type": "script",
+      "weight": 1
+    }
+  },
+  "/croissants": {
+    "src/components/my-app.js": {
+      "type": "script",
+      "weight": 1
+    },
+    "src/components/product-pages/view-croissants.js": {
+      "type": "script",
+      "weight": 1
+    },
+    "node_modules/@webcomponents/webcomponentsjs/webcomponents-loader.js": {
+      "type": "script",
+      "weight": 1
+    }
+  },
+  "/contacts": {
+    "src/components/my-app.js": {
+      "type": "script",
+      "weight": 1
+    },
+    "src/components/page-contacts.js": {
       "type": "script",
       "weight": 1
     },

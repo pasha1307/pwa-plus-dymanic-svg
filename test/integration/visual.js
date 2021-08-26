@@ -55,14 +55,14 @@ describe('👀 page screenshots are correct', function() {
     it('/index.html', async function() {
       return takeAndCompareScreenshot(page, '', 'wide');
     });
-    it('/view1', async function() {
-      return takeAndCompareScreenshot(page, 'view1', 'wide');
+    it('/home', async function() {
+      return takeAndCompareScreenshot(page, 'home', 'wide');
     });
-    it('/view2', async function() {
-      return takeAndCompareScreenshot(page, 'view2', 'wide');
+    it('/products', async function() {
+      return takeAndCompareScreenshot(page, 'products', 'wide');
     });
-    it('/view3', async function() {
-      return takeAndCompareScreenshot(page, 'view3', 'wide');
+    it('/products', async function() {
+      return takeAndCompareScreenshot(page, 'products', 'wide');
     });
     it('/404', async function() {
       return takeAndCompareScreenshot(page, 'batmanNotAView', 'wide');
@@ -77,14 +77,14 @@ describe('👀 page screenshots are correct', function() {
     it('/index.html', async function() {
       return takeAndCompareScreenshot(page, '', 'narrow');
     });
-    it('/view1', async function() {
-      return takeAndCompareScreenshot(page, 'view1', 'narrow');
+    it('/home', async function() {
+      return takeAndCompareScreenshot(page, 'home', 'narrow');
     });
-    it('/view2', async function() {
-      return takeAndCompareScreenshot(page, 'view2', 'narrow');
+    it('/products', async function() {
+      return takeAndCompareScreenshot(page, 'products', 'narrow');
     });
-    it('/view3', async function() {
-      return takeAndCompareScreenshot(page, 'view3', 'narrow');
+    it('/products', async function() {
+      return takeAndCompareScreenshot(page, 'products', 'narrow');
     });
     it('/404', async function() {
       return takeAndCompareScreenshot(page, 'batmanNotAView', 'narrow');
