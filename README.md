@@ -30,3 +30,4 @@ gives you the following features:
 - [x] Setup Safari testing on Travis.
 - [x] Deploy all templates as demos.
 - [ ] Update to latest [Material Web Components](https://github.com/material-components/material-components-web-components).
+# g-polymer-demo-project
